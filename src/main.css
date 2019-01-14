@@ -1,0 +1,123 @@
+html {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+progress {
+    width: 100%;
+}
+
+i {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.d-none {
+    display: none;
+}
+
+.loader {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(255, 255, 255, 0.8);
+    height: 100%;
+}
+
+#spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 3rem;
+}
+
+.bg-set {
+    min-height: 100vh;
+    background-color: white;
+    filter: invert(0);
+    transition: filter 0.3s;
+    padding: 10px;
+}
+
+.invert {
+    filter: invert(0.9);
+}
+
+.theme {
+    display: grid;
+    right: 10px;
+    bottom: 10px;
+    position: fixed;
+}
+
+.bulb {
+    font-size: 3rem;
+}
+
+.f-right {
+    float: right;
+}
+
+.full {
+    width: 100%
+}
+
+.d-flex {
+    display: flex;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+
+.spread {
+    justify-content: space-between;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 444px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    margin: 20px 0px;
+}
+
+.expandable {
+    height: 0px;
+    overflow: hidden;
+    transform: scaleY(0);
+    transition: transform 0.3s ease-out;
+    transform-origin: top;
+}
+
+.expandable.expanded {
+    height: auto;
+    transform: scaleY(1);
+}
+
+.chevron {
+    transition: transform 0.3s ease-out;
+}
+
+.chevron.rotate {
+    transform: rotateX(180deg);
+}
+
+.red {
+    background-image: radial-gradient(red, transparent 40%)
+}
+
+.blue {
+    background-image: radial-gradient(blue, transparent 40%)
+}

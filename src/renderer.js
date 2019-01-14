@@ -1,5 +1,8 @@
 export let interval;
 
+/**
+ * Move each character forward every 250ms
+ */
 export function titleAnimator() {
 
     let titleText = document.title;
@@ -10,6 +13,11 @@ export function titleAnimator() {
 
 }
 
+/**
+ * Verify if the user clicked the icon or the father tag, after that do the animation to spin and show
+ * @param {*} id html id
+ * @param {*} event html entire tag
+ */
 function expander(id, event) {
 
     const srcEl = event.srcElement;
@@ -28,6 +36,9 @@ function expander(id, event) {
     document.getElementById(id).classList.toggle('expanded');
 }
 
+/**
+ * Set every listener on the HTML
+ */
 export function setListeners() {
 
     document.getElementById('p-exp-btn').addEventListener('click', (event) => {
@@ -49,10 +60,19 @@ export function setListeners() {
 
 }
 
+/**
+ * 
+ * @param {*} arr infos array
+ * @param {*} id Id of the element it's going to be appended
+ * @param {*} htmlBuilder funtion with specific treat for each information to be displayed
+ */
 export function appender(arr, id, htmlBuilder) {
     htmlBuilder(arr, id);
 }
 
+/**
+ * Perform a rotation of 1degree each 5ms
+ */
 export function animation() {
 
     let i = 0;
@@ -63,6 +83,9 @@ export function animation() {
 
 }
 
-export function hideLoader(){
+/**
+ * Toggle between show and hide the loader
+ */
+export function hideLoader() {
     document.getElementById('load').classList.toggle('d-none');
 }

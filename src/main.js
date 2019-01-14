@@ -1,14 +1,29 @@
 import { doRequest } from './connection.js';
 import { titleAnimator, setListeners, appender, animation, interval, hideLoader } from './renderer.js';
 
+/**
+ * Init function, ran as soon the js is imported
+ */
 (async () => {
 
+    // Function responsible to animate the page loader
     animation();
+    // Function responsible to animate the page title
     titleAnimator();
+    // Bind the page elements and set functions for them
     setListeners();
+
+    /**
+     * Make requests
+     */
     const companies = await doRequest('http://demo1163728.mockable.io/companies');
     const skills = await doRequest('http://demo1163728.mockable.io/skills');
 
+    if (!companies || !skills) {
+        Swal('Pare!', 'Algo deu errado durante a requisição. <br>Tente novamente mais tarde!', 'error');
+    }
+
+    // Get the informations received from mockable and append them into the HTML
     appender(companies, 'p-experience', (snap, a) => {
 
         const doc = document.getElementById(a);
@@ -32,7 +47,6 @@ import { titleAnimator, setListeners, appender, animation, interval, hideLoader 
         });
 
     });
-
     appender(skills, 'p-skills', (snap, a) => {
 
         const doc = document.getElementById(a);
@@ -53,7 +67,9 @@ import { titleAnimator, setListeners, appender, animation, interval, hideLoader 
 
     });
 
+    // Hide the loader, since there is no awaiting respose
     hideLoader();
+    // Clear the interval animation to reduce proccessing
     clearInterval(interval);
 
 })();
